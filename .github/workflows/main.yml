@@ -25,7 +25,7 @@ jobs:
     - name: Build Android App
       uses: sparkfabrik/android-build-action@v1.0.0
       with:
-        project-path: /
-        output-path: output.apk
-        gradle-task: assempleRelease
+        project-path: android
+        output-path: sveltecalc.apk
+        gradle-task: assempleDebug
         browserstack-upload: false

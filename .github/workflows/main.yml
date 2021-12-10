@@ -23,20 +23,17 @@ jobs:
       - name: Install Cordova
         run: npm install -g cordova
 
-      - name: Install Ionic
-        run: npm install -g @ionic/cli
-
       - name: Install app dependencies
         run: npm install
 
       - name: Add Android platform
-        run: ionic cordova platform add android@latest
+        run: cordova platform add android
 
       - name: Build Android Dev APK
-        run: ionic cordova build android
+        run: cordova build android
 
       - name: Build Android Release APK
-        run: ionic cordova build android --release --prod
+        run: cordova build android --release --prod
 
       - name: Generate the Android App Bundle
         working-directory: ./platforms/android/

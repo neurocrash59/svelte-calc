@@ -22,5 +22,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Android Builder
-        uses: b4s36t4/Android-Action@0.0.1
+    - name: Build Android App
+      uses: sparkfabrik/android-build-action@v1.0.0
+      project-path: android/
+      output-path: output.apk
+      gradle-task: assempleRelease
+      browserstack-upload: false
+        artifacts:
+      - app/build/outputs/**/**/*.apk

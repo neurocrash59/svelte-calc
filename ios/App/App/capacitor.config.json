@@ -1,0 +1,6 @@
+{
+	"appId": "com.idonthaveanydomains.sveltecalc",
+	"appName": "Simple Svelte Calculator",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}

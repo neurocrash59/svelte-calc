@@ -1,5 +1,7 @@
 workflows:
   my-workflow:
+    environment:
+      ndk: r23
     scripts:
       - name: Install dependencies
         script: npm ci
@@ -7,16 +9,22 @@ workflows:
         script: |
           set -e # exit on first failed command
 
-          cvm install 9.0.0
-          cvm use 9.0.0
-      - name: Add iOS platform
+          cvm install 10.0.0
+          cvm use 10.0.0
+      - name: Add Android platform
         script: |
           set -e # exit on first failed command
 
-          cordova platform remove ios --nosave
-          cordova platform add ios --confirm --no-interactive --noresources --save
-      - name: Build iOS release
+          cordova platform remove android --nosave
+          cordova platform add android --confirm --no-interactive --noresources
+      - name: Build Android release
         script: |
           set -e # exit on first failed command
 
-          cordova build ios --no-interactive
+          cordova build android --no-interactive
+        artifacts:
+          - build/android/sveltecalc.apk
+    publishing:
+      email:
+        recipients:
+          - synthiv1916@gmail.com

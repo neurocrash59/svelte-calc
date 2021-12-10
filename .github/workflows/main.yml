@@ -24,9 +24,8 @@ jobs:
     steps:
     - name: Build Android App
       uses: sparkfabrik/android-build-action@v1.0.0
-      project-path: android/
-      output-path: output.apk
-      gradle-task: assempleRelease
-      browserstack-upload: false
-        artifacts:
-      - app/build/outputs/**/**/*.apk
+      with:
+        project-path: android/
+        output-path: output.apk
+        gradle-task: assempleRelease
+        browserstack-upload: false

@@ -1,8 +1,0 @@
-workflows:
-  my-workflow:
-    scripts:
-      - name: Build Android APK
-        working_directory: android/
-        script: ./gradlew build
-    artifacts:
-      - app/build/outputs/**/**/*.apk

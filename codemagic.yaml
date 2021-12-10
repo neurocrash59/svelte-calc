@@ -23,7 +23,7 @@ workflows:
 
           cordova build android --no-interactive
         artifacts:
-          - build/android/sveltecalc.apk
+          - build/**/outputs/apk/**/*.apk
     publishing:
       email:
         recipients:

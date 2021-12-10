@@ -22,8 +22,8 @@ workflows:
           set -e # exit on first failed command
 
           cordova build android --no-interactive
-        artifacts:
-          - build/**/outputs/apk/**/*.apk
+    artifacts:
+      - build/**/outputs/apk/**/*.apk
     publishing:
       email:
         recipients:

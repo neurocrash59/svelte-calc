@@ -22,8 +22,5 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: sparkfabrik/android-build-action@v1.0.0
-        with:
-          project-path: android
-          output-path: my-app.apk
-          browserstack-upload: false
+      - name: Android Build
+        uses: vgaidarji/android-github-actions-build@v1.0.1

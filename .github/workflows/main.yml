@@ -4,11 +4,21 @@ on: [push, pull_request]
 
 jobs:
   build:
+    env:
+      ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
     name: Build APK
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
         uses: actions/checkout@v2
+        
+      - name: Setup NDK
+        uses: nttld/setup-ndk@v1
+        id: setup-ndk
+        with:
+          ndk-version: r21e
+          add-to-path: false
+          run: ./build.sh
 
       - name: Setup java
         uses: actions/setup-java@v1
@@ -18,7 +28,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 13.x
+          node-version: 16.x
 
       - name: Install Cordova
         run: npm install -g cordova
